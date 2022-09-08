@@ -22,7 +22,6 @@ class AutoShardedBot(commands.Bot):
         intents = discord.Intents.default()
         # intents.members = True
         intents.guilds = True
-        self.shard_count = 1 - 10
         self.version = __version__
         self.chunk_at_startup = False
 
