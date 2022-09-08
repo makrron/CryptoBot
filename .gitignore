@@ -6,3 +6,4 @@ env/
 venv/
 logs/logbooks/
 .DS_Store
+.db
