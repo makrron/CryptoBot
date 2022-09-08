@@ -1,6 +1,6 @@
 """Main file, intended to be launched."""
 
-__version__ = "6.0.0"
+__version__ = "6.1.0"
 
 import json
 
@@ -20,9 +20,8 @@ class AutoShardedBot(commands.Bot):
 
     def __init__(self):
         intents = discord.Intents.default()
-        intents.members = True
+        # intents.members = True
         intents.guilds = True
-        self.shard_count = 1 - 10
         self.version = __version__
         self.chunk_at_startup = False
 
@@ -44,6 +43,7 @@ class AutoShardedBot(commands.Bot):
         await self.load_extension("cogs.misc")
         await self.load_extension("cogs.bitcoin")
         await self.load_extension("cogs.transaction_fees")
+        await self.load_extension("cogs.robosats_alerts")
         await self.tree.sync()
 
     async def on_guild_join(self, guild):

@@ -15,6 +15,12 @@
  - `/check_transaction {TRANSACTION HASH}` => returns the status ofthe transaction given a transaction hash.
  - `/post_transaction {TX}` => post raw transaction to bitcoin network. You need a signed transaction to post it.
 
+## 🤖 Robosats 🤖
+ - `/robosats_offers {FIAT} {DIRECTION}`=> Returns all active offers given a fiat currency and the purpose of the order
+ - `/create_robosats_alert {FIAT} {AMOUNT} {PREMIUM} {METHOD} {DIRECTION}`=> Create an alert for robosats exchange
+ - `/my_robosats_alerts`=> Show your robosats active alerts
+ - `/remove_robosats_alert {ALERT_ID}`=> Remove your robosats alert
+
 ## ⛏ Transaction Fees ⛏
  - `/gas =>` Shows ETH GAS price
  - `/btcfee =>` Shows Bitcoin fees
