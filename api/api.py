@@ -87,4 +87,4 @@ def all_robosats_alerts():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(port=5001, debug=False)
