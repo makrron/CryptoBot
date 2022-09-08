@@ -111,7 +111,7 @@ class RoboSatsAlerts(commands.Cog):
             logger.exception(f"Error checking offers: {e}")
 
     @app_commands.command(name="create_robosats_alert",
-                          description="🔔 Create a alert for robosats exchange 🔔")
+                          description="🔔 Create an alert for robosats exchange 🔔")
     @app_commands.describe(fiat="Fiat currency symbol. Ex: usd",
                            amount="Amount of fiat you want to spend",
                            premium="Percentage of premium you want to set",

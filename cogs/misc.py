@@ -107,7 +107,7 @@ class Misc(commands.Cog):
                 "Chain gas.\n`/polygas` => Shows Polygon gas.")
             robosats = ("\n`/robosats_offers {FIAT} {DIRECTION}`=> Returns all active offers given a fiat currency "
                         "and the purpose of the order\n "
-                        "`/create_robosats_alert {FIAT} {AMOUNT} {PREMIUM} {METHOD} {DIRECTION}`=> Create a alert for "
+                        "`/create_robosats_alert {FIAT} {AMOUNT} {PREMIUM} {METHOD} {DIRECTION}`=> Create an alert for "
                         "robosats exchange\n "
                         "`/my_robosats_alerts`=> Show your robosats active alerts\n "
                         "`/remove_robosats_alert {ALERT_ID}`=> Remove your robosats alert\n")
