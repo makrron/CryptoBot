@@ -51,10 +51,10 @@ class Misc(commands.Cog):
                             value=f"Serving {members} people", inline=False)
             embed.add_field(name=":satellite: **Channels** :satellite:", value=f"{channels}", inline=False)
             embed.add_field(name=":gear: **Version** :gear:", value=f"{self.bot.version}", inline=False)
-            embed.add_field(name=":green_square: **Shard ID** :green_square:", value=f"{self.bot.shard_id}",
-                            inline=True)
-            embed.add_field(name=":green_square: **Shard Count** :green_square:", value=f"{self.bot.shard_count}",
-                            inline=True)
+            # embed.add_field(name=":green_square: **Shard ID** :green_square:", value=f"{self.bot.shard_id}",
+            #                inline=True)
+            # embed.add_field(name=":green_square: **Shard Count** :green_square:", value=f"{self.bot.shard_count}",
+            #                 inline=True)
             embed.add_field(name=":bar_chart: **Server Usage** :bar_chart:",
                             value=f"CPU: {psutil.cpu_percent()}% RAM: {psutil.virtual_memory()[2]}%", inline=False)
             try:
@@ -105,6 +105,12 @@ class Misc(commands.Cog):
             fees = (
                 "\n`/gas` => Shows ETH GAS price.\n`/btcfee` => Shows Bitcoin fees.\n`/bscgas` => Shows Binance Smart "
                 "Chain gas.\n`/polygas` => Shows Polygon gas.")
+            robosats = ("\n`/robosats_offers {FIAT} {DIRECTION}`=> Returns all active offers given a fiat currency "
+                        "and the purpose of the order\n "
+                        "`/create_robosats_alert {FIAT} {AMOUNT} {PREMIUM} {METHOD} {DIRECTION}`=> Create a alert for "
+                        "robosats exchange\n "
+                        "`/my_robosats_alerts`=> Show your robosats active alerts\n "
+                        "`/remove_robosats_alert {ALERT_ID}`=> Remove your robosats alert\n")
             misc = (
                 "\n`/inviteme` => Invite CryptoBot to your server.\n `/vote` => give us 5 stars on top.gg.\n "
                 "`/support` => Join if you find a bug or if you have some suggestions.\n `/info` => Bot info and some "
@@ -115,6 +121,7 @@ class Misc(commands.Cog):
             embed.add_field(name=":dollar:  Crypto Price  :dollar:", value=crypto, inline=False)
             embed.add_field(name=":pick:  Transaction Fees  :pick:", value=fees, inline=False)
             embed.add_field(name=":coin:  Bitcoin  :coin:", value=bitcoin, inline=False)
+            embed.add_field(name=":robot: Robosats :robot:", value=robosats, inline=False)
             embed.add_field(name=":balloon:  Misc  :balloon:", value=misc, inline=False)
             embed.add_field(name=":sparkling_heart:  Donations  :sparkling_heart:", value=donations, inline=False)
 
