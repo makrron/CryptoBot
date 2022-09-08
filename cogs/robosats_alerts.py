@@ -75,7 +75,7 @@ class RoboSatsAlerts(commands.Cog):
     async def before_robosatsAlertTask(self):
         logger.info("robosatsAlertTask waiting to the bot to be ready.")
         await self.bot.wait_until_ready()
-        logger.info("robosatsAlertTask is ready.")
+        logger.info("robosatsAlertTask started.")
 
     # ###################################################################################################################
     @app_commands.command(name="robosats_offers",
