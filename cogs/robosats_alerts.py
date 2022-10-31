@@ -29,7 +29,7 @@ class RoboSatsAlerts(commands.Cog):
     async def robosatsAlertTask(self):
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.get("http://127.0.0.1:5001/robosats_alerts") as r:
+                async with session.get("http://127.0.0.1:5000/robosats_alerts") as r:
                     if r.status == 200:
                         response = await r.json()
                         if len(response['ALERTS']) > 0:  # if database is empty don't do this
@@ -66,7 +66,7 @@ class RoboSatsAlerts(commands.Cog):
 
                                         await user.send(embed=embed)
                                         await delete_price_alert_by_id(alert_id,
-                                                                       f"http://127.0.0.1:5001/robosats_alerts/{user_id}/")
+                                                                       f"http://127.0.0.1:5000/robosats_alerts/{user_id}/")
                                         break
         except Exception as e:
             logger.exception(f"Error on robosatsAlertTask: {e}")
@@ -134,7 +134,7 @@ class RoboSatsAlerts(commands.Cog):
             objects_list["ALERTS"].append(d)
 
             async with aiohttp.ClientSession() as session:
-                async with session.post(f"http://127.0.0.1:5001/robosats_alerts/{user_id}/",
+                async with session.post(f"http://127.0.0.1:5000/robosats_alerts/{user_id}/",
                                         json=json.dumps(objects_list)) as r:
                     if r.status == 200:
                         await interaction.response.send_message("```Your alert was created ```")
@@ -145,7 +145,7 @@ class RoboSatsAlerts(commands.Cog):
                                   description="🔍 Show your robosats active alerts 🔍")
     async def my_alerts(self, interaction: discord.Interaction):
         async with aiohttp.ClientSession() as session:
-            async with session.get(f"http://127.0.0.1:5001/robosats_alerts/{interaction.user.id}/") as r:
+            async with session.get(f"http://127.0.0.1:5000/robosats_alerts/{interaction.user.id}/") as r:
                 data = await r.json()
                 if len(data['ALERTS']) > 0:
                     embed_response = discord.Embed(title="Active alerts")
@@ -166,13 +166,13 @@ class RoboSatsAlerts(commands.Cog):
     async def remove_alert(self, interaction: discord.Interaction, alert_id: str):
         removed = False
         async with aiohttp.ClientSession() as session:
-            async with session.get(f"http://127.0.0.1:5001/robosats_alerts/{interaction.user.id}/") as r:
+            async with session.get(f"http://127.0.0.1:5000/robosats_alerts/{interaction.user.id}/") as r:
                 data = await r.json()
         for alert in data['ALERTS']:
             if int(alert['ALERT_ID']) == int(alert_id):
                 removed = True
                 await delete_price_alert_by_id(alert_id,
-                                               f"http://127.0.0.1:5001/robosats_alerts/{interaction.user.id}/")
+                                               f"http://127.0.0.1:5000/robosats_alerts/{interaction.user.id}/")
                 await interaction.response.send_message("```Your alert was removed```")
         if not removed:
             await interaction.response.send_message(
