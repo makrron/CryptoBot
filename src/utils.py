@@ -6,7 +6,7 @@ import discord
 import requests
 
 from logs.logger import logger
-from main import config
+from cryptobot import config
 
 promo_phrases = [
     "Unlock CryptoBot premium",
