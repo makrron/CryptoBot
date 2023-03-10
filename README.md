@@ -36,3 +36,10 @@
 
 ## 💖 Donations 💖
  - `/donate` => Invite me a coffee.
+client.on('message', message => {
+  if (message.content === 'private') {
+    message.author.send('Este es un mensaje privado');
+  }
+});
+
+ 
