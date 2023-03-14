@@ -4,9 +4,13 @@ import random
 import aiohttp
 import discord
 import requests
+from urllib3 import Retry
 
 from logs.logger import logger
+from main import config
+from requests.adapters import HTTPAdapter
 from cryptobot import config
+
 
 promo_phrases = [
     "Unlock CryptoBot premium",
@@ -28,8 +32,19 @@ def get_bot_status() -> str:
 def get_tor_session():
     logger.info("starting tor session")
     session = requests.session()
+
+    # configurar el adaptador de reintentos
+    retries = Retry(total=15, backoff_factor=0.1, status_forcelist=[500, 502, 503, 504])
+    adapter = HTTPAdapter(max_retries=retries)
+
+    # añadir el adaptador a la sesión
+    session.mount('http://', adapter)
+    session.mount('https://', adapter)
+
+    # configurar los proxies para tor
     session.proxies = {'http': 'socks5h://127.0.0.1:' + config["TOR_PORT"],
                        'https': 'socks5h://127.0.0.1:' + config["TOR_PORT"]}
+
     return session
 
 

@@ -41,20 +41,20 @@ class Robosats:
             f = session.get(robosatsTor + command)
         except requests.exceptions.Timeout as e:
             # Maybe set up for a retry, or continue in a retry loop
-            logger.error("Error obtaining orders from Robosats (timeout): %s - %s" % (e.errno, e.strerror))
+            logger.error("Error obtaining orders from Robosats (timeout): %s" % e)
             return []
         except requests.exceptions.TooManyRedirects as e:
-            logger.error("Error obtaining orders from Robosats (too many redirects): %s - %s" % (e.errno, e.strerror))
+            logger.error("Error obtaining orders from Robosats (too many redirects): %s" % e)
             return []
         except requests.exceptions.RequestException as e:
-            logger.error("Error obtaining orders from Robosats: %s - %s" % (e.errno, e.strerror))
+            logger.error("Error obtaining orders from Robosats: %s" % e)
             return []
 
         try:
             values = f.json()
             f.close()
         except json.decoder.JSONDecodeError as e:
-            logger.error("Error decoding orders from Robosats: %s - %s" % (e.errno, e.strerror))
+            logger.error("Error decoding orders from Robosats: %s" % e)
             return []
         alloffers = []
 
