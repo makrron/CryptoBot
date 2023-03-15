@@ -7,7 +7,6 @@ import requests
 from urllib3 import Retry
 
 from logs.logger import logger
-from main import config
 from requests.adapters import HTTPAdapter
 from cryptobot import config
 
