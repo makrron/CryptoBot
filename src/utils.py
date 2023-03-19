@@ -32,7 +32,7 @@ def get_tor_session():
 
     # configurar el adaptador de reintentos
     retries = Retry(total=15, backoff_factor=0.1, status_forcelist=[500, 502, 503, 504])
-    adapter = HTTPAdapter(max_retries=retries)
+    adapter = HTTPAdapter(max_retries=retries, pool_connections=100, pool_maxsize=100)
 
     # añadir el adaptador a la sesión
     session.mount('http://', adapter)
