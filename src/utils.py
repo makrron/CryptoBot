@@ -57,7 +57,8 @@ async def delete_price_alert_by_id(alert_id, url: str):
 async def sendAdEmbed(self, interaction: discord.Interaction, embed):
     try:
         ad_embed = discord.Embed(title=get_promo(), url="https://discord.gg/nNRKgYkvj9",
-                                 color=0xf90206)
+                                 color=0xf90206, description=get_promo())
+        ad_embed.set_thumbnail(url=self.bot.user.avatar)
         embed.set_footer(text=get_promo(), icon_url=self.bot.user.avatar)
         await self.bot.change_presence(
             activity=discord.Activity(type=discord.ActivityType.playing, name=f"{get_bot_status()}"))
