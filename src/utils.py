@@ -10,10 +10,11 @@ from logs.logger import logger
 from requests.adapters import HTTPAdapter
 from cryptobot import config
 
-
-promo_phrases = ["Use: /donate for support CryptoBot", "Use Robosats: Simple and private LN P2P exchange", "Buy non-KYC sats now this TOR Browser"]
-bot_status = ["Unlock CryptoBot premium", "Checking the blockchain", "Join CryptoBot Official Channel",
-              "Use: /donate for support CryptoBot, "]
+promo_phrases = ["Remove ads using Cryptobot Premium ", "Join CryptoBot Official Channel", "Unlock CryptoBot premium",
+                 "Unlock premium functions", "Unlock News, Prices Alerts and Whales Alerts with CryptoBot premium",
+                 "Suscribe to CryptoBot premium for 5$/month", "Unlock CryptoBot premium for 5$/month"]
+bot_status = ["Unlock CryptoBot premium", "Join CryptoBot Official Channel",
+              "Use: /donate for support CryptoBot"]
 
 
 def get_promo() -> str:
@@ -55,10 +56,9 @@ async def delete_price_alert_by_id(alert_id, url: str):
 
 async def sendAdEmbed(self, interaction: discord.Interaction, embed):
     try:
-        ad_embed = discord.Embed(title=get_promo(), url="https://learn.robosats.com",
-                                 color=0xf90206, )
+        ad_embed = discord.Embed(title=get_promo(), url="https://discord.gg/nNRKgYkvj9",
+                                 color=0xf90206)
         embed.set_footer(text=get_promo(), icon_url=self.bot.user.avatar)
-        embed.set_image(url="https://a.fsdn.com/con/app/proj/robosats.s/screenshots/robosats2.jpeg/1000/auto/1")
         await self.bot.change_presence(
             activity=discord.Activity(type=discord.ActivityType.playing, name=f"{get_bot_status()}"))
         return await interaction.response.send_message(embeds=[ad_embed, embed])
