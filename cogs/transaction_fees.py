@@ -8,11 +8,17 @@ from discord.ext import commands
 from logs.logger import logger
 from src.utils import sendAdEmbed
 
+with open("config.json", encoding="utf-8") as file:
+    config = json.load(file)
+
 
 class TransactionFees(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+        self.ETHSCAN_API = config["ETHSCAN_API"]
+        self.BSCSCAN_API = config["BSCSCAN_API"]
+        self.POLYGONSCAN_API = config["POLYGONSCAN_API"]
 
     @discord.app_commands.command(name="gas",
                                   description="⛽ Get Ethereum gas fees ⛽")
@@ -20,25 +26,24 @@ class TransactionFees(commands.Cog):
         try:
             # ------------------------------------------
             async with aiohttp.ClientSession() as session:
-                async with session.get("https://api.gasprice.io/v1/estimates") as r:
-                    fees_response = await (r.text())
+                async with session.get(
+                        f"https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey={self.ETHSCAN_API}") as r:
+                    fees_response = await (r.json())
 
-            fees_response = json.loads(fees_response)
-
-            rapid = round(int(fees_response["result"]["instant"]["feeCap"]))
-            fast = round(int(fees_response["result"]["fast"]["feeCap"]))
-            standard = round(int(fees_response["result"]["eco"]["feeCap"]))
-            # slow = round(int(fees_response["result"]["slow"]["feeCap"]))
+            fast = round(float(fees_response["result"]["FastGasPrice"]))
+            standard = round(float(fees_response["result"]["ProposeGasPrice"]))
+            slow = round(float(fees_response["result"]["SafeGasPrice"]))
+            average = round(float(fees_response["result"]["suggestBaseFee"]))
             # ------------------------------------------
 
             embed = discord.Embed(title=":fuelpump: Ethereum Gas", color=0x5872a0)
             embed.set_thumbnail(url="https://ethgasstation.info/static/images/egs_transparent.png")
-            embed.add_field(name=":comet:  **Instant**  :comet:", value=f"{rapid} Gwei | 15 sec", inline=False)
-            embed.add_field(name=":dizzy:  **Fast**  :dizzy:", value=f"{fast} Gwei | 1 min", inline=False)
-            embed.add_field(name=":turtle:  **Standar**  :turtle:", value=f"{standard} Gwei | 3 mins", inline=False)
-            # embed.add_field(name=":snail:  **Slow**  :snail:", value=f"{slow} Gwei | >10 mins", inline=False)
-            # embed.set_footer(text="Texto de prueba")
-            # await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f" texto de prueba"))
+            embed.add_field(name=":comet:  **Fast**  :comet:", value=f"{fast} Gwei | 15 sec", inline=False)
+            embed.add_field(name=":dizzy:  **Standar**  :dizzy:", value=f"{standard} Gwei | 1 min", inline=False)
+            embed.add_field(name=":turtle:  **Slow**  :turtle:", value=f"{slow} Gwei | 3 mins", inline=False)
+            embed.add_field(name=":snail:  **Average**  :snail:", value=f"{average} Gwei | 3 mins", inline=False)
+            # embed.set_footer(text="Test")
+            # await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"Test"))
             # ------------------------------------------------
             try:
                 await sendAdEmbed(self, interaction, embed)
@@ -82,21 +87,19 @@ class TransactionFees(commands.Cog):
     async def bscgas(self, interaction: discord.Interaction):
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.get("https://owlracle.info/bsc/gas") as r:
+                async with session.get(f"https://api.bscscan.com/api?module=gastracker&action=gasoracle&apikey={self.BSCSCAN_API}") as r:
                     fees_response = await (r.json())
             # ------------------------------------------
-            rapid = fees_response["speeds"][0]["gasPrice"]
-            fast = fees_response["speeds"][1]["gasPrice"]
-            standard = fees_response["speeds"][2]["gasPrice"]
-            slow = fees_response["speeds"][3]["gasPrice"]
+            fast = round(float(fees_response["result"]["FastGasPrice"]))
+            standard = round(float(fees_response["result"]["ProposeGasPrice"]))
+            slow = round(float(fees_response["result"]["SafeGasPrice"]))
             # ------------------------------------------
             embed = discord.Embed(title=":fuelpump: BSC Gas", color=0xedad0e)
             embed.set_thumbnail(
                 url="https://user-images.githubusercontent.com/7338312/127578976-d47069cb-c162-4ab5-ad73-be17b2c1796d.png")
-            embed.add_field(name=":comet:  **Rapid**  :comet:", value=f"{rapid} Gwei | 15 sec", inline=False)
-            embed.add_field(name=":dizzy:  **Fast**  :dizzy:", value=f"{fast} Gwei | 1 min", inline=False)
-            embed.add_field(name=":turtle:  **Standar**  :turtle:", value=f"{standard} Gwei | 3 mins", inline=False)
-            embed.add_field(name=":snail:  **Slow**  :snail:", value=f"{slow} Gwei | >10 mins", inline=False)
+            embed.add_field(name=":comet:  **Rapid**  :comet:", value=f"{fast} Gwei | 15 sec", inline=False)
+            embed.add_field(name=":dizzy:  **Fast**  :dizzy:", value=f"{standard} Gwei | 1 min", inline=False)
+            embed.add_field(name=":turtle:  **Standar**  :turtle:", value=f"{slow} Gwei | 3 mins", inline=False)
             try:
                 await sendAdEmbed(self, interaction, embed)
             except Exception as e:
@@ -111,23 +114,25 @@ class TransactionFees(commands.Cog):
     async def polygas(self, interaction: discord.Interaction):
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.get("https://gasstation-mainnet.matic.network/") as r:
+                async with session.get(f"https://api.polygonscan.com/api?module=gastracker&action=gasoracle"
+                                       f"&apikey={self.POLYGONSCAN_API}") as r:
                     fees_response = await (r.json())
             # ------------------------------------------
-            rapid = fees_response["fastest"]
-            fast = fees_response["fast"]
-            standar = fees_response["standard"]
-            slow = fees_response["safeLow"]
+            fast = round(float(fees_response["result"]["FastGasPrice"]))
+            standard = round(float(fees_response["result"]["ProposeGasPrice"]))
+            slow = round(float(fees_response["result"]["SafeGasPrice"]))
+            average = round(float(fees_response["result"]["suggestBaseFee"]))
             # ------------------------------------------
             embed = discord.Embed(title=":fuelpump: Polygon Gas", color=0x6900ea)
             embed.set_thumbnail(
-                url="https://user-images.githubusercontent.com/7338312/127578967-a7097067-9b0a-44d2-baf6-e3541a511c70.png")
-            embed.add_field(name=":comet:  **Rapid**  :comet:", value=f"{round(float(rapid))} Gwei | ASAP",
+                url="https://user-images.githubusercontent.com/7338312/127578967-a7097067-9b0a-44d2-baf6-e3541a511c70"
+                    ".png")
+            embed.add_field(name=":comet:  **Rapid**  :comet:", value=f"{fast} Gwei | ASAP",
                             inline=False)
-            embed.add_field(name=":dizzy:  **Fast**  :dizzy:", value=f"{round(float(fast))} Gwei | < 30s", inline=False)
-            embed.add_field(name=":turtle:  **Standar**  :turtle:", value=f"{round(float(standar))} Gwei | 3 mins",
+            embed.add_field(name=":dizzy:  **Fast**  :dizzy:", value=f"{standard} Gwei | < 30s", inline=False)
+            embed.add_field(name=":turtle:  **Standar**  :turtle:", value=f"{slow} Gwei | 3 mins",
                             inline=False)
-            embed.add_field(name=":snail:  **Slow**  :snail:", value=f"{round(float(slow))} Gwei | >10 mins",
+            embed.add_field(name=":snail:  **Slow**  :snail:", value=f"{average} Gwei | >10 mins",
                             inline=False)
             try:
                 await sendAdEmbed(self, interaction, embed)
