@@ -1,48 +1,48 @@
 import { memo } from "react";
 import { GlHeader } from "gitlanding/GlHeader";
-import { routes } from "router";
-import { declareComponentKeys, useTranslation, useLang } from "i18n";
-import { createLanguageSelect } from "onyxia-ui/LanguageSelect";
-import type { Language } from "i18n";
+import {declareComponentKeys} from "i18nifty";
+//import { declareComponentKeys, useTranslation, useLang } from "i18n";
+//import { createLanguageSelect } from "onyxia-ui/LanguageSelect";
+//import type { Language } from "i18n";
 
-const { LanguageSelect } = createLanguageSelect<Language>({
+/*const { LanguageSelect } = createLanguageSelect<Language>({
 	"languagesPrettyPrint": {
 		"en": "English",
 		"fr": "Français"
 	}
-})
+})*/
 
 export const Header = memo(() => {
-	const { t } = useTranslation({ Header })
-	const { lang, setLang } = useLang();
-	return <GlHeader
-		title={<a {...routes.home().link}><h1>{t("headerTitle")}</h1></a>}
-		links={[
+	//const { t } = useTranslation({ Header })
+	//const { lang, setLang } = useLang();
+	return <><GlHeader
+			title={<h1 style={{ color: 'darkgoldenrod' }}>{"CryptoBot 🤖"}</h1>}		links={[
 			{
-				"label": t("link1label"),
-				...routes.pageExample().link
+				"label": ("Documentation"),
+				"href": "https://cryptobot-1.gitbook.io/documentation/",
 			},
 			{
-				"label": t("link2label"),
-				"href": "https://example.com",
+				"label": ("GitHub"),
+				"href": "https://github.com/makrron/CryptoBot",
 			},
 			{
-				"label": t("link3label"),
-				"href": "https://example.com",
+				"label": ("Add to Discord"),
+				"href": "https://discord.com/application-directory/860134458308821042",
 			},
 		]}
-		enableDarkModeSwitch={true}
-		githubRepoUrl="https://github.com/torvalds/linux"
-		githubButtonSize="large"
-		customItemEnd={{
+		enableDarkModeSwitch={false}
+	/>
+
+	</>;
+		/*customItemEnd={{
 			"item": <LanguageSelect
 				language={lang}
 				onLanguageChange={setLang}
 				variant="big"
 			/>
-		}}
+		}}*/
 
-	/>
+
 });
 
 export const { i18n } = declareComponentKeys<

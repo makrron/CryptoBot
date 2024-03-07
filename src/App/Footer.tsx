@@ -1,16 +1,23 @@
 import { memo } from "react";
 import { GlFooter } from "gitlanding/GlFooter";
-import { routes } from "router";
 import { declareComponentKeys, useTranslation } from "i18n";
-
-
 export const Footer = memo(() => {
 	const { t } = useTranslation({ Footer })
 	return <GlFooter
 		bottomDivContent={t("license")}
-		email="email@email.com"
-		phoneNumber="+33545345676"
-		links={[
+		//email="email@email.com"
+		//phoneNumber="+33545345676"
+		iconLinks={[
+			{
+				"iconUrl": "https://discord.com/assets/favicon.ico",
+				"href": "https://discord.com/application-directory/860134458308821042",
+			},
+			{
+				"iconUrl": "https://github.com/favicon.ico",
+				"href": "https://twitter.com/makrron",
+			}
+		]}
+		/*links={[
 			{
 				"label": t("link1label"),
 				...routes.pageExample().link
@@ -23,7 +30,7 @@ export const Footer = memo(() => {
 				"label": t("link3label"),
 				"href": "https://example.com",
 			},
-		]}
+		]}*/
 	/>
 })
 
