@@ -43,7 +43,7 @@ class AutoShardedBot(commands.Bot):
         await self.load_extension("cogs.misc")
         await self.load_extension("cogs.bitcoin")
         await self.load_extension("cogs.transaction_fees")
-        await self.load_extension("cogs.robosats_alerts")
+        # await self.load_extension("cogs.robosats_alerts")
         await self.tree.sync()
 
     async def on_guild_join(self, guild):

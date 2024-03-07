@@ -5,6 +5,7 @@ import psutil
 from discord import app_commands
 from discord.ext import commands, tasks
 
+from cryptobot import config
 from logs.logger import logger
 from src.utils import get_bot_status, sendAdEmbed
 
@@ -148,7 +149,16 @@ class Misc(commands.Cog):
         except Exception as e:
             logger.exception(f"Error on donate: {e}")
 
-
+    @app_commands.command(name="feedback",
+                          description="Send a feedback to the bot owner")
+    @app_commands.describe(message="Message to send to the bot owner")
+    async def feedback(self, interaction: discord.Interaction, message: str):
+        try:
+            user = await self.bot.fetch_user(config["OWNER_ID"])
+            await user.send(f"Feedback from `{interaction.user.name}`: {message}")
+            await interaction.response.send_message("Feedback sent!")
+        except Exception as e:
+            logger.exception(f"Error on feedback: {e}")
 async def setup(bot: commands.Bot):
     await bot.add_cog(
         Misc(bot)
