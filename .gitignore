@@ -1,0 +1,9 @@
+.vscode
+.idea
+config.json
+__pycache__/
+env/
+venv/
+logs/logbooks/
+.DS_Store
+*.db
