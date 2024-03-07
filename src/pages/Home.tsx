@@ -4,8 +4,6 @@ import { GlArticle } from "gitlanding/GlArticle";
 import { GlCards } from "gitlanding/GlCards";
 import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";
 import { declareComponentKeys } from "i18n";
-import heroPng from "assets/img/hero.png";
-import articlePng from "assets/img/home-article.png";
 import eurIcon from "assets/icons/euros.png";
 import yenIcon from "assets/icons/yen.png";
 import coin from "assets/icons/coin.png";
@@ -18,6 +16,7 @@ import settingsIcon from "assets/icons/settings.png";
 import researchIcon from "assets/icons/research.png";
 import newsIcon from "assets/icons/news.png";
 import alarmIcon from "assets/icons/alarm.png";
+import mascotaImage from "assets/img/mascota.png";
 
 
 export const Home = memo(() => {
@@ -28,11 +27,14 @@ export const Home = memo(() => {
 				subTitle={("Discord bot that allows you to manage your cryptocurrencies. It is open-source and free to use.")}
 				illustration={{
 					"type": "image",
-					"src": heroPng,
-					"hasShadow": false
+					"src": mascotaImage,
+					"hasShadow": true
 				}}
-				hasLinkToSectionBellow={true}
+				hasAnimation={true}
+				hasLinkToSectionBellow={false}
+
 			/>
+
 
 			<GlArticle
 				title={("Used in more than 1000 servers")}
@@ -50,11 +52,11 @@ export const Home = memo(() => {
 					"href": "",
 					"onClick": () => window.open("https://discord.com/oauth2/authorize?client_id=860134458308821042&permissions=8&scope=bot", "_blank")
 				}}
-				illustration={{
+				/*illustration={{
 					"type": "image",
-					"src": articlePng,
-					"hasShadow": false
-				}}
+					"src": mascotaImage,
+					"hasShadow": true
+				}}*/
 				hasAnimation={true}
 				illustrationPosition="left"
 			/>

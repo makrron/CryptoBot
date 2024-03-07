@@ -5,11 +5,7 @@ import { GlCheckList } from "gitlanding/GlCheckList";
 import { GlCards } from "gitlanding/GlCards";
 import { GlSectionDivider } from "gitlanding/GlSectionDivider";
 import { declareComponentKeys, useTranslation } from "i18n";
-import articlePng from "assets/img/article-page-example.png"
-import pokemonPng from "assets/img/pokemon.png";
-import dataPng from "assets/img/data-visualisation.png";
-import kubernetesPng from "assets/img/kubernetes.png";
-import webinairePng from "assets/img/webinaire.png";
+import bitcoinIcon from "assets/icons/bitcoin.png";
 
 
 export const PageExample = memo(() => {
@@ -27,7 +23,7 @@ export const PageExample = memo(() => {
 			}}
 			illustration={{
 				"type": "image",
-				"src": articlePng,
+				"src": bitcoinIcon,
 				"hasShadow": false
 			}}
 			hasAnimation={true}
@@ -37,22 +33,22 @@ export const PageExample = memo(() => {
 			<GlProjectCard
 				title={t("projectCardTitle1")}
 				subtitle={t("projectCardSubtitle1")}
-				projectImageUrl={pokemonPng}
+				projectImageUrl={bitcoinIcon}
 			/>
 			<GlProjectCard
 				title={t("projectCardTitle2")}
 				subtitle={t("projectCardSubtitle2")}
-				projectImageUrl={dataPng}
+				projectImageUrl={bitcoinIcon}
 			/>
 			<GlProjectCard
 				title={t("projectCardTitle3")}
 				subtitle={t("projectCardSubtitle3")}
-				projectImageUrl={kubernetesPng}
+				projectImageUrl={bitcoinIcon}
 			/>
 			<GlProjectCard
 				title={t("projectCardTitle4")}
 				subtitle={t("projectCardSubtitle4")}
-				projectImageUrl={webinairePng}
+				projectImageUrl={bitcoinIcon}
 			/>
 		</GlCards>
 

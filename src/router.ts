@@ -5,7 +5,7 @@ import {makeThisModuleAnExecutableRouteLister} from "github-pages-plugin-for-typ
 
 export const routeDefs = {
 	"home": defineRoute("/CryptoBot"),
-	"pageExample": defineRoute("/page-example"),
+	//"pageExample": defineRoute("/page-example"),
 };
 
 makeThisModuleAnExecutableRouteLister(routeDefs);
