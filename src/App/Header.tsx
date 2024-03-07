@@ -1,48 +1,36 @@
 import { memo } from "react";
 import { GlHeader } from "gitlanding/GlHeader";
 import {declareComponentKeys} from "i18nifty";
-//import { declareComponentKeys, useTranslation, useLang } from "i18n";
-//import { createLanguageSelect } from "onyxia-ui/LanguageSelect";
-//import type { Language } from "i18n";
-
-/*const { LanguageSelect } = createLanguageSelect<Language>({
-	"languagesPrettyPrint": {
-		"en": "English",
-		"fr": "Français"
-	}
-})*/
 
 export const Header = memo(() => {
-	//const { t } = useTranslation({ Header })
-	//const { lang, setLang } = useLang();
 	return <><GlHeader
 			title={<h1 style={{ color: 'darkgoldenrod' }}>{"CryptoBot 🤖"}</h1>}		links={[
 			{
 				"label": ("Documentation"),
-				"href": "https://cryptobot-1.gitbook.io/documentation/",
+				"href": "",
+				"onClick": () => window.open("https://cryptobot-1.gitbook.io/documentation/", "_blank")
 			},
 			{
 				"label": ("GitHub"),
-				"href": "https://github.com/makrron/CryptoBot",
+				"href": "",
+				"onClick": () => window.open("https://github.com/makrron/CryptoBot", "_blank")
 			},
 			{
 				"label": ("Add to Discord"),
-				"href": "https://discord.com/application-directory/860134458308821042",
+				"href": "",
+				"onClick": () => window.open("https://discord.com/oauth2/authorize?client_id=860134458308821042&permissions=8&scope=bot", "_blank")
+			},
+			{
+				"label": ("Premium"),
+				"href": "",
+				"onClick": () => window.open("https://mee6.xyz/es/m/cryptobot", "_blank")
+
 			},
 		]}
 		enableDarkModeSwitch={false}
 	/>
 
 	</>;
-		/*customItemEnd={{
-			"item": <LanguageSelect
-				language={lang}
-				onLanguageChange={setLang}
-				variant="big"
-			/>
-		}}*/
-
-
 });
 
 export const { i18n } = declareComponentKeys<

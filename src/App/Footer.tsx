@@ -5,11 +5,10 @@ export const Footer = memo(() => {
 	const { t } = useTranslation({ Footer })
 	return <GlFooter
 		bottomDivContent={t("license")}
-		//email="email@email.com"
-		//phoneNumber="+33545345676"
+		email="email@email.com"
 		iconLinks={[
 			{
-				"iconUrl": "https://discord.com/assets/favicon.ico",
+				"iconUrl": "https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg",
 				"href": "https://discord.com/application-directory/860134458308821042",
 			},
 			{
@@ -17,20 +16,6 @@ export const Footer = memo(() => {
 				"href": "https://twitter.com/makrron",
 			}
 		]}
-		/*links={[
-			{
-				"label": t("link1label"),
-				...routes.pageExample().link
-			},
-			{
-				"label": t("link2label"),
-				"href": "https://example.com",
-			},
-			{
-				"label": t("link3label"),
-				"href": "https://example.com",
-			},
-		]}*/
 	/>
 })
 
