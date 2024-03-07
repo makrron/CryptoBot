@@ -34,7 +34,7 @@ export const {
 						"not found": "Page not found"
 					},
 					"Header": {
-						"headerTitle": "Title",
+						"headerTitle": "CryptoBot",
 						"link1label": "Example page",
 						"link2label": "Link 2",
 						"link3label": "Link 3"
