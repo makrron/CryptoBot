@@ -3,7 +3,7 @@ import { GlHero } from "gitlanding/GlHero/GlHero";
 import { GlArticle } from "gitlanding/GlArticle";
 import { GlCards } from "gitlanding/GlCards";
 import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";
-import { declareComponentKeys, useTranslation } from "i18n";
+import { declareComponentKeys } from "i18n";
 import heroPng from "assets/img/hero.png";
 import articlePng from "assets/img/home-article.png";
 import eurIcon from "assets/icons/euros.png";
