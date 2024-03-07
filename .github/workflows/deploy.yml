@@ -5,7 +5,7 @@ on:
 
 jobs:
 
-  deploy_on_web:
+  deploy_on_gh_pages:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
