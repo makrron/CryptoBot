@@ -1,17 +1,27 @@
 {
   "files": {
-    "main.js": "/CryptoBot/static/js/main.d4909025.js",
+    "main.js": "/CryptoBot/static/js/main.04ba2930.js",
     "static/media/home-article.png": "/CryptoBot/static/media/home-article.64a2f430b7a77662910e.png",
     "static/media/article-page-example.png": "/CryptoBot/static/media/article-page-example.70d6bd57ede0ada106fa.png",
     "static/media/hero.png": "/CryptoBot/static/media/hero.5e0a7345cf72196b81c5.png",
     "static/media/pokemon.png": "/CryptoBot/static/media/pokemon.ac632dd7fdb5aa28556b.png",
     "static/media/webinaire.png": "/CryptoBot/static/media/webinaire.0fb29383820e122217ca.png",
     "static/media/data-visualisation.png": "/CryptoBot/static/media/data-visualisation.c147fb3b112f51f096a2.png",
+    "static/media/research.png": "/CryptoBot/static/media/research.b8c1eae096d965b1a31c.png",
     "static/media/kubernetes.png": "/CryptoBot/static/media/kubernetes.52ea2430dfac2c2b029c.png",
+    "static/media/bitcoin.png": "/CryptoBot/static/media/bitcoin.76f035b8d79a73f4d55d.png",
+    "static/media/coin.png": "/CryptoBot/static/media/coin.4b6336386fc324c01874.png",
+    "static/media/yen.png": "/CryptoBot/static/media/yen.3e8eb98fc843d04579e3.png",
+    "static/media/euros.png": "/CryptoBot/static/media/euros.08a5979cdea14f74a53a.png",
+    "static/media/news.png": "/CryptoBot/static/media/news.a8cb2ced34654cb1c685.png",
+    "static/media/settings.png": "/CryptoBot/static/media/settings.306cb5c46f31f0d6d048.png",
+    "static/media/alarm.png": "/CryptoBot/static/media/alarm.314f4502938a087f88ad.png",
+    "static/media/whale.png": "/CryptoBot/static/media/whale.0d8c5ccf9171cd7b42f9.png",
+    "static/media/ETHgas.png": "/CryptoBot/static/media/ETHgas.2d4da989def4eef5e081.png",
     "index.html": "/CryptoBot/index.html",
-    "main.d4909025.js.map": "/CryptoBot/static/js/main.d4909025.js.map"
+    "main.04ba2930.js.map": "/CryptoBot/static/js/main.04ba2930.js.map"
   },
   "entrypoints": [
-    "static/js/main.d4909025.js"
+    "static/js/main.04ba2930.js"
   ]
 }
