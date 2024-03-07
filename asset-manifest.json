@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/CryptoBot.git/static/js/main.8a0dacaf.js",
-    "static/media/home-article.png": "/CryptoBot.git/static/media/home-article.64a2f430b7a77662910e.png",
-    "static/media/article-page-example.png": "/CryptoBot.git/static/media/article-page-example.70d6bd57ede0ada106fa.png",
-    "static/media/hero.png": "/CryptoBot.git/static/media/hero.5e0a7345cf72196b81c5.png",
-    "static/media/pokemon.png": "/CryptoBot.git/static/media/pokemon.ac632dd7fdb5aa28556b.png",
-    "static/media/webinaire.png": "/CryptoBot.git/static/media/webinaire.0fb29383820e122217ca.png",
-    "static/media/data-visualisation.png": "/CryptoBot.git/static/media/data-visualisation.c147fb3b112f51f096a2.png",
-    "static/media/kubernetes.png": "/CryptoBot.git/static/media/kubernetes.52ea2430dfac2c2b029c.png",
-    "index.html": "/CryptoBot.git/index.html",
-    "main.8a0dacaf.js.map": "/CryptoBot.git/static/js/main.8a0dacaf.js.map"
+    "main.js": "/CryptoBot/static/js/main.dd5a4c78.js",
+    "static/media/home-article.png": "/CryptoBot/static/media/home-article.64a2f430b7a77662910e.png",
+    "static/media/article-page-example.png": "/CryptoBot/static/media/article-page-example.70d6bd57ede0ada106fa.png",
+    "static/media/hero.png": "/CryptoBot/static/media/hero.5e0a7345cf72196b81c5.png",
+    "static/media/pokemon.png": "/CryptoBot/static/media/pokemon.ac632dd7fdb5aa28556b.png",
+    "static/media/webinaire.png": "/CryptoBot/static/media/webinaire.0fb29383820e122217ca.png",
+    "static/media/data-visualisation.png": "/CryptoBot/static/media/data-visualisation.c147fb3b112f51f096a2.png",
+    "static/media/kubernetes.png": "/CryptoBot/static/media/kubernetes.52ea2430dfac2c2b029c.png",
+    "index.html": "/CryptoBot/index.html",
+    "main.dd5a4c78.js.map": "/CryptoBot/static/js/main.dd5a4c78.js.map"
   },
   "entrypoints": [
-    "static/js/main.8a0dacaf.js"
+    "static/js/main.dd5a4c78.js"
   ]
 }
