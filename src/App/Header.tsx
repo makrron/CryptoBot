@@ -8,7 +8,7 @@ import type { Language } from "i18n";
 const { LanguageSelect } = createLanguageSelect<Language>({
 	"languagesPrettyPrint": {
 		"en": "English",
-		"fr": "Francais"
+		"fr": "Français"
 	}
 })
 
